@@ -16,7 +16,7 @@ const Sun = () => {
   );
 };
 
-// Componente dos Planetas e Luas
+// Componente dos Planetas
 const Planet = ({ texturePath, size, distance, speed, moons = [] }) => {
   const planetRef = useRef();
   const planetTexture = useLoader(THREE.TextureLoader, texturePath);
@@ -85,20 +85,20 @@ Moon.propTypes = {
 // Cena do Sistema Solar
 const SolarSystem = () => {
   return (
-    <Canvas camera={{ position: [0, 20, 50] }}>
+    <Canvas camera={{ position: [0, 50, 100] }}>
       <ambientLight intensity={0.3} />
       <pointLight position={[0, 0, 0]} intensity={2} />
       <OrbitControls />
       <Stars />
       <Sun />
 
-      {/* Planetas e Luas */}
-      <Planet texturePath="/textures/mercury.jpg" size={0.38} distance={7} speed={0.24} />
-      <Planet texturePath="/textures/venus.jpg" size={0.95} distance={9} speed={0.18} />
+      {/* Planetas com espaçamentos realistas */}
+      <Planet texturePath="/textures/mercury.jpg" size={0.38} distance={10} speed={0.24} />
+      <Planet texturePath="/textures/venus.jpg" size={0.95} distance={16} speed={0.18} />
       <Planet
         texturePath="/textures/earth.jpg"
         size={1}
-        distance={12}
+        distance={22}
         speed={0.10}
         moons={[
           { texturePath: "/textures/moon.jpg", size: 0.27, distance: 2, speed: 0.5 },
@@ -107,7 +107,7 @@ const SolarSystem = () => {
       <Planet
         texturePath="/textures/mars.jpg"
         size={0.53}
-        distance={16}
+        distance={30}
         speed={0.08}
         moons={[
           { texturePath: "/textures/phobos.jpg", size: 0.1, distance: 1.5, speed: 0.3 },
@@ -117,19 +117,19 @@ const SolarSystem = () => {
       <Planet
         texturePath="/textures/jupiter.jpg"
         size={3}
-        distance={22}
+        distance={50}
         speed={0.04}
         moons={[
-          { texturePath: "/textures/io.jpg", size: 0.4, distance: 3.5, speed: 0.2 },
-          { texturePath: "/textures/europa.jpg", size: 0.3, distance: 4.5, speed: 0.15 },
-          { texturePath: "/textures/ganymede.jpg", size: 0.5, distance: 6, speed: 0.1 },
-          { texturePath: "/textures/callisto.jpg", size: 0.48, distance: 8, speed: 0.08 },
+          { texturePath: "/textures/io.jpg", size: 0.4, distance: 4, speed: 0.2 },
+          { texturePath: "/textures/europa.jpg", size: 0.3, distance: 5, speed: 0.15 },
+          { texturePath: "/textures/ganymede.jpg", size: 0.5, distance: 7, speed: 0.1 },
+          { texturePath: "/textures/callisto.jpg", size: 0.48, distance: 9, speed: 0.08 },
         ]}
       />
       <Planet
         texturePath="/textures/saturn.jpg"
         size={2.5}
-        distance={30}
+        distance={70}
         speed={0.03}
         moons={[
           { texturePath: "/textures/titan.jpg", size: 0.4, distance: 5, speed: 0.12 },
@@ -139,7 +139,7 @@ const SolarSystem = () => {
       <Planet
         texturePath="/textures/uranus.jpg"
         size={2}
-        distance={38}
+        distance={90}
         speed={0.02}
         moons={[
           { texturePath: "/textures/titania.jpg", size: 0.2, distance: 4, speed: 0.1 },
@@ -149,7 +149,7 @@ const SolarSystem = () => {
       <Planet
         texturePath="/textures/neptune.jpg"
         size={1.9}
-        distance={45}
+        distance={110}
         speed={0.01}
         moons={[
           { texturePath: "/textures/triton.jpg", size: 0.3, distance: 4.5, speed: 0.09 },
